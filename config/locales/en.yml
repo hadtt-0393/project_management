@@ -24,6 +24,8 @@ en:
       profile_account: "Profile & account"
       list_projects: "Projects"
       list_reports: "Reports"
+      list_resources: "Resources"
+      list_release_plans: "Release Plans"
   user_mailer:
     password_reset:
       subject: "Password reset"

@@ -24,6 +24,8 @@ vi:
       profile_account: "Hồ sơ & tài khoản"
       list_projects: "Dự án"
       list_reports: "Báo cáo"
+      list_resources: "Tài nguyên"
+      list_release_plans: "Kế hoạch phát hành"
   user_mailer:
     password_reset:
       subject: "Đặt lại mật khẩu"

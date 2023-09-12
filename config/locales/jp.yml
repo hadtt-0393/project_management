@@ -24,6 +24,8 @@ jp:
       profile_account: "プロフィールとアカウント"
       list_projects: "プロジェクト"
       list_reports: "レポート"
+      list_resources: "リソース"
+      list_release_plans: "リリース計画"
   user_mailer:
     password_reset:
       subject: "パスワードのリセット"

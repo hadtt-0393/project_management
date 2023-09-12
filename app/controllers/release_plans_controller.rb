@@ -1,9 +1,11 @@
 class ReleasePlansController < ApplicationController
-  before_action :logged_in_user, :find_release_plan, only: %i(edit update)
+  before_action :logged_in_user, :find_release_plan, only: %i(edit update index)
   before_action only: :update do
     check_valid_project edit_release_plan_url,
                         params.dig(:release_plan, :project_id)
   end
+
+  def index; end
 
   def edit
     @projects = current_user.valid_projects_by_role
