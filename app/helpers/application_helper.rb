@@ -17,4 +17,8 @@ module ApplicationHelper
   def sequence_number counter, offset
     counter + 1 + offset
   end
+
+  def active_class_for_url url, current_url
+    Settings.section.actived if current_url == url
+  end
 end

@@ -33,3 +33,5 @@ month_year:
 check_destroy:
   destroy_true: "1"
   destroy_false: "false"
+section:
+  actived: "active"
