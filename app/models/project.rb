@@ -2,9 +2,9 @@ class Project < ApplicationRecord
   attr_accessor :month_year, :project_id
 
   PROJECT_PARAMS = [
-    :name, :description, :status, :start_date,
-    :end_date, :group_id, :language,
-    :repository, :redmine,
+    :name, :rubato_id, :description, :status,
+    :start_date, :end_date, :group_id,
+    :language, :repository, :redmine,
     :project_folder, :customers,
     :creator_id,
     {
@@ -70,6 +70,7 @@ class Project < ApplicationRecord
   has_many :project_health_items, dependent: :destroy
   has_many :health_items, through: :project_health_items
   has_many :project_user_resources, through: :project_users
+  has_many :lesson_learns, dependent: :destroy
 
   delegate :name, to: :group, prefix: true
   delegate :name, to: :creator, prefix: true
@@ -96,6 +97,7 @@ class Project < ApplicationRecord
   validates :repository, length: {maximum: Settings.project.max_length_200}
   validates :redmine, length: {maximum: Settings.project.max_length_200}
   validates :project_folder, length: {maximum: Settings.project.max_length_200}
+  validates :rubato_id, length: {maximum: Settings.project.max_length_100}
 
   scope :filter_name, lambda {|name|
     where("projects.name LIKE ?", "%#{name}%") if name.present?
@@ -177,5 +179,12 @@ class Project < ApplicationRecord
     year ||= Time.zone.now.year
     month ||= Time.zone.now.month
     project_user_resources.total_man_month_year(month, year)
+  end
+
+  def can_delete_project?
+    reports.empty? &&
+      project_user_resources.empty? &&
+      project_features.empty? &&
+      release_plans.empty?
   end
 end
