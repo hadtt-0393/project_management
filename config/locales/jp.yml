@@ -65,6 +65,7 @@ jp:
       statistics_resources: "統計プロジェクトのリソース"
       dashboard_resources: "プロジェクトリソース統計グラフ"
       statistics_values: "プロジェクト価値の統計"
+      dashboard_values: "プロジェクト価値統計グラフ"
   user_mailer:
     password_reset:
       subject: "パスワードのリセット"
@@ -702,3 +703,7 @@ jp:
   statistics_resources:
     index:
       export: "統計リソースのエクスポート"
+  dashboard_values:
+    index:
+      title: "プロジェクト価値統計グラフ"
+      values_chart: "プロジェクト価値"
